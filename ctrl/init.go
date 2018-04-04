@@ -3,10 +3,11 @@ package ctrl
 import (
 	"fmt"
 	_ "github.com/denisenkom/go-mssqldb"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 )
 
-var dbc *sqlx.DB
+//var dbc *sqlx.DB
 var headerKeys = make(map[string]interface{})
 
 func setHeader() {
@@ -52,7 +53,7 @@ func init() {
 
 func ConnectMySql() (mydb *sqlx.DB) {
 
-	dsn := "it:[ibdkifu@tcp(192.168.0.89:9010)/"+ "SmartQ" +"?parseTime=true&charset=utf8&loc=Local"
+	dsn := "it:[ibdkifu@tcp(192.168.0.89:3306)/"+ "SmartQ" +"?parseTime=true&charset=utf8&loc=Local"
 
 	mydb = sqlx.MustConnect("mysql", dsn)
 	if (mydb.Ping() != nil) {

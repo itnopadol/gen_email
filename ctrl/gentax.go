@@ -20,7 +20,7 @@ func GenTaxData(c *gin.Context) {
 	g := new(model.TaxData)
 	err := g.GenTaxData(begin_date, end_date, tax, Dbc)
 
-	rs := resp.
+	rs := Response{}
 	if err != nil {
 		rs.Status = "error"
 		rs.Message = "No Content and Error :" + err.Error()
